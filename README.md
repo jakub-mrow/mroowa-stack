@@ -17,20 +17,7 @@ The agent skills I use from [tstack](https://github.com/t3dotgg/tstack) by Theo 
 
 ## Source
 
-The `mroowa-how`, `mroowa-tdd`, `mroowa-typescript-best-practices`, `mroowa-laziness-protocol`, `mroowa-model-the-domain`, `mroowa-teach`, and `mroowa-interrogate` skills originate from [Lauren Tan’s pstack](https://github.com/cursor/plugins/tree/11713c683fe4add4fd403ea880580abbc9e0875f/pstack), version 0.15.17, at commit `11713c683fe4add4fd403ea880580abbc9e0875f`.
+All skills are MIT licensed. See [LICENSE](LICENSE).
 
-The `mroowa-how` and `mroowa-tdd` skills retain their upstream contents. The principle skills use shorter names. The TypeScript skill is self-contained, with dependencies on separate pstack skills removed and examples kept in an optional reference file.
-
-The `mroowa-how` skill includes its explorer and explainer prompt templates. Its upstream instructions use Cursor’s subagent tools and model configuration.
-
-The `mroowa-teach` skill is adapted for a smaller token budget: one agent by default, existing evidence reused, design history investigated only when relevant, and optional diagrams. It has no required `how`, `why`, or `unslop` dependency and does not automatically generate images. It preserves explicit invocation in Codex through `skills/mroowa-teach/agents/openai.yaml`.
-
-The `mroowa-interrogate` skill uses exactly one read-only review subagent, inheriting the parent model by default. The parent evaluates its findings using the bundled rubric and judgment framework. Multi-model panels, further delegation, and the agreement map are removed. If delegation is unavailable, it falls back to one local review. It preserves explicit invocation in Codex and reports findings without automatically applying fixes.
-
-The pstack imports are MIT licensed. See [LICENSE](LICENSE).
-
-The `mroowa-babysit`, `mroowa-file-pr`, and `mroowa-leaving-pr-comments` skills originate from [Theo Browne’s tstack](https://github.com/t3dotgg/tstack/tree/7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd/skills) (`babysit-pr`, `file-pr`, and `leaving-pr-comments`), at commit `7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd`. They keep their upstream contents. Names have the `mroowa-` prefix, and the skills refer to each other by those names. `babysit-pr` is imported as `mroowa-babysit` and replaces the earlier Claude-Mem import of that name.
-
-`mroowa-babysit` waits with T3 Code’s `watch_pull_request` when it is available. Otherwise it uses the bundled `skills/mroowa-babysit/scripts/pr-wait`, which requires `python3` and an authenticated `gh`. `mroowa-file-pr` and `mroowa-babysit` use `mroowa-leaving-pr-comments` for every comment they post, so install the three together.
-
-The tstack imports are MIT licensed. See [LICENSE](LICENSE).
+- **[pstack](https://github.com/cursor/plugins/tree/11713c683fe4add4fd403ea880580abbc9e0875f/pstack)** (v0.15.17): `how`, `tdd`, `typescript-best-practices`, `laziness-protocol`, `model-the-domain`, `teach`, `interrogate`. `teach` and `interrogate` are trimmed to use a single agent. The TypeScript skill doesn't depend on other skills.
+- **[tstack](https://github.com/t3dotgg/tstack/tree/7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd/skills)**: `babysit`, `file-pr`, `leaving-pr-comments`. They are unchanged apart from the prefix. Install all three together. Outside T3 Code, `babysit` needs `python3` and an authenticated `gh`.
