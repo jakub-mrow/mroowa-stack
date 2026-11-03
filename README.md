@@ -14,6 +14,7 @@ The agent skills I use from [tstack](https://github.com/t3dotgg/tstack) by Theo 
 | [mroowa-leaving-pr-comments](skills/mroowa-leaving-pr-comments/SKILL.md) | Format GitHub comments an agent posts on your behalf, with a model attribution note. |
 | [mroowa-teach](skills/mroowa-teach/SKILL.md) | Explain concepts and code in small conversational layers, with concrete examples and optional diagrams. |
 | [mroowa-interrogate](skills/mroowa-interrogate/SKILL.md) | Adversarially review changes with one read-only reviewer, then filter findings through parent judgment. |
+| [mroowa-sol-loop](skills/mroowa-sol-loop/SKILL.md) | Review a change with GPT Sol in a loop (at most 3 rounds, 5 for risky areas) until Sol and the main agent agree. |
 | [mroowa-security-audit](skills/mroowa-security-audit/SKILL.md) | Find vulnerabilities across real trust boundaries at three levels: `low` (single-agent scan), `medium` (two layers, at most two subagents), or `full` (complete audit with report). |
 
 ## Source
@@ -22,4 +23,5 @@ All skills are MIT licensed. See [LICENSE](LICENSE).
 
 - **[pstack](https://github.com/cursor/plugins/tree/11713c683fe4add4fd403ea880580abbc9e0875f/pstack)** (v0.15.17): `how`, `tdd`, `typescript-best-practices`, `laziness-protocol`, `model-the-domain`, `teach`, `interrogate`. `teach` and `interrogate` are trimmed to use a single agent. The TypeScript skill doesn't depend on other skills.
 - **[tstack](https://github.com/t3dotgg/tstack/tree/7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd/skills)**: `babysit`, `file-pr`, `leaving-pr-comments`. They are unchanged apart from the prefix. Install all three together. Outside T3 Code, `babysit` needs `python3` and an authenticated `gh`.
+- **[tstack](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills)**: `sol-loop`. Unchanged apart from the prefix and description. Needs a way to run GPT Sol as a subagent: `delegate_task` in T3 Code, or a Sol subagent in your harness. It does not substitute another model.
 - **[security-audit-skill](https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit)** by Cloudflare: `security-audit`. Adds the `low` and `medium` audit levels; `full` is the original workflow.
