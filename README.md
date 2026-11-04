@@ -1,6 +1,6 @@
 # mroowa-stack
 
-The agent skills I use from [tstack](https://github.com/t3dotgg/tstack) by Theo ([@t3dotgg](https://github.com/t3dotgg)) and [pstack](https://github.com/cursor/plugins/tree/main/pstack) by poteto ([@poteto](https://github.com/poteto)), plus [Cloudflare's security-audit-skill](https://github.com/cloudflare/security-audit-skill). Each skill name has the `mroowa-` prefix, so typing `/mroowa` lists them all together.
+The agent skills I use from [tstack](https://github.com/t3dotgg/tstack) by Theo ([@t3dotgg](https://github.com/t3dotgg)) and [pstack](https://github.com/cursor/plugins/tree/main/pstack) by poteto ([@poteto](https://github.com/poteto)), plus [Cloudflare's security-audit-skill](https://github.com/cloudflare/security-audit-skill). Each skill name has the `mroowa-` prefix, so typing `/mroowa` lists them all together. Any skill that spawns an OpenAI subagent runs it on the Codex (Allegro) provider, not plain Codex.
 
 | Skill | Purpose |
 | --- | --- |
@@ -23,5 +23,5 @@ All skills are MIT licensed. See [LICENSE](LICENSE).
 
 - **[pstack](https://github.com/cursor/plugins/tree/11713c683fe4add4fd403ea880580abbc9e0875f/pstack)** (v0.15.17): `how`, `tdd`, `typescript-best-practices`, `laziness-protocol`, `model-the-domain`, `teach`, `interrogate`. `teach` and `interrogate` are trimmed to use a single agent. The TypeScript skill doesn't depend on other skills.
 - **[tstack](https://github.com/t3dotgg/tstack/tree/7de017b3fc9d50c03cf3ecb98fb71e0ca65a78bd/skills)**: `babysit`, `file-pr`, `leaving-pr-comments`. They are unchanged apart from the prefix. Install all three together. Outside T3 Code, `babysit` needs `python3` and an authenticated `gh`.
-- **[tstack](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills)**: `sol-loop`. Unchanged apart from the prefix and description. Needs a way to run GPT Sol as a subagent: `delegate_task` in T3 Code, or a Sol subagent in your harness. It does not substitute another model.
+- **[tstack](https://github.com/t3dotgg/tstack/tree/1085050f3baed1ac724caa4a8166145fb2ac88af/skills)**: `sol-loop`. Changed only in its prefix, its description, and running Sol on the Codex (Allegro) provider. Needs a way to run GPT Sol as a subagent: `delegate_task` in T3 Code, or a Sol subagent in your harness. It does not substitute another model or fall back to plain Codex.
 - **[security-audit-skill](https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit)** by Cloudflare: `security-audit`. Adds the `low` and `medium` audit levels; `full` is the original workflow.

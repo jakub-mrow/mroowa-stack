@@ -26,6 +26,8 @@ Read [references/reviewer-prompt.md](references/reviewer-prompt.md) and fill in 
 
 Use only tool arguments supported by the current runtime. When there is no read-only tool flag, put the constraint in the task. If subagents are unavailable or prohibited, perform one review in the current agent and disclose the fallback. Do not compensate by running multiple sequential reviewer passes.
 
+Any subagent that runs on an OpenAI model must use the T3 provider instance named "Codex (Allegro)" (currently `codex_codex_allegro`), never the plain `codex` instance. If Codex (Allegro) is unavailable, say so. Do not fall back to plain Codex.
+
 The reviewer covers every relevant lens in one pass. It must trace concrete failure paths, distinguish defects from preferences, and return no findings when that is the evidence. Do not force every lens onto a small change.
 
 ## 4. Parent judgment

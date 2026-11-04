@@ -46,15 +46,18 @@ missing or pre-failing checks in the brief.
 
 ## 2. Start Sol
 
-In T3, call `orchestrator_capabilities`. Pick the latest Sol unless the user
-named a version. Do not hardcode an ID. Record provider, model, and effort
-only if exposed. Use `delegate_task` every round (`role: "review"`,
+In T3, call `orchestrator_capabilities`. Run Sol on the provider instance
+named "Codex (Allegro)" (currently `codex_codex_allegro`), never the plain
+`codex` instance. Pass its `providerInstanceId` in `target`. If it is missing
+or disabled, report the blocker. Do not fall back to plain Codex. Pick the
+latest Sol on it unless the user named a version. Do not hardcode a model ID.
+Record provider, model, and effort only if exposed. Use `delegate_task` every round (`role: "review"`,
 `mode: "async"`). Save `taskId`. New `clientRequestId` per round.
 `childThreadId` is storage, not the next target. Do not use
 `t3_thread_send`, `create_threads`, or `t3_thread_launch` for review.
 
 If T3 tools are not listed, try one direct capability call. Outside T3, use
-a native Sol subagent and keep its ID. In Claude Code, use a custom subagent
+a native Sol subagent on Codex (Allegro) and keep its ID. In Claude Code, use a custom subagent
 only if it is set up to run Sol. If no route runs Sol, report the blocker. Do
 not substitute a model.
 

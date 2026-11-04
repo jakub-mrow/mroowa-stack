@@ -72,6 +72,8 @@ This skill is agent-neutral:
 
 Use equivalent platform capabilities while preserving role, write-isolation, prompt, and independence boundaries.
 
+Any subagent that runs on an OpenAI model must use the T3 provider instance named "Codex (Allegro)" (currently `codex_codex_allegro`), never the plain `codex` instance. If Codex (Allegro) is unavailable, say so. Do not fall back to plain Codex.
+
 ## Universal execution safety
 
 These rules apply in every mode and level. Source inspection is read-only. Run target-controlled builds, tests, processes, browsers, emulators, fuzzers, and fixture processing only inside an OS-enforced sandbox that provides all of these controls:

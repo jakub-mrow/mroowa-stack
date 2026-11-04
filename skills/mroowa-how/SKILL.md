@@ -10,6 +10,8 @@ Explore the codebase to answer "how does X work?" questions. Produce architectur
 
 Every spawn is a Task subagent with `subagent_type: generalPurpose` and `readonly: true`. Explorers use the `how explorer` line in the `pstack-models.mdc` rule (default `grok-4.7-xhigh-fast`), and every explainer uses the `how explainer` line (default `claude-opus-5-5-xhigh`). Set `model` to that line's value, or to the default if the rule or the line is missing. Leave `model` unset when the value is `auto` or `inherit-parent`. If the Task tool rejects a slug, use the default and say so. If it rejects the default, use the closest valid slug of the same family from its error message.
 
+Any subagent that runs on an OpenAI model must use the T3 provider instance named "Codex (Allegro)" (currently `codex_codex_allegro`), never the plain `codex` instance. If Codex (Allegro) is unavailable, say so. Do not fall back to plain Codex.
+
 ## 1. Assess complexity
 
 If the scope is ambiguous, state your interpretation and explore. The user can redirect.
